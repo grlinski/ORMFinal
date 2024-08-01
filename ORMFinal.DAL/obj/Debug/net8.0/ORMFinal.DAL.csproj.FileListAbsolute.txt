@@ -1,0 +1,17 @@
+C:\Users\g_lin\source\repos\ORMFinal.DAL\bin\Debug\net8.0\ORMFinal.DAL.deps.json
+C:\Users\g_lin\source\repos\ORMFinal.DAL\bin\Debug\net8.0\ORMFinal.DAL.runtimeconfig.json
+C:\Users\g_lin\source\repos\ORMFinal.DAL\bin\Debug\net8.0\ORMFinal.DAL.dll
+C:\Users\g_lin\source\repos\ORMFinal.DAL\bin\Debug\net8.0\ORMFinal.DAL.pdb
+C:\Users\g_lin\source\repos\ORMFinal.DAL\bin\Debug\net8.0\ORMFinal.Models.dll
+C:\Users\g_lin\source\repos\ORMFinal.DAL\bin\Debug\net8.0\ORMFinal.Models.pdb
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\ORMFinal.DAL.csproj.AssemblyReference.cache
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\ORMFinal.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\ORMFinal.DAL.AssemblyInfoInputs.cache
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\ORMFinal.DAL.AssemblyInfo.cs
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\ORMFinal.DAL.csproj.CoreCompileInputs.cache
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\ORMFinal.988CFC42.Up2Date
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\ORMFinal.DAL.dll
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\refint\ORMFinal.DAL.dll
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\ORMFinal.DAL.pdb
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\ORMFinal.DAL.genruntimeconfig.cache
+C:\Users\g_lin\source\repos\ORMFinal.DAL\obj\Debug\net8.0\ref\ORMFinal.DAL.dll
