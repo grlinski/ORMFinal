@@ -1,10 +1,10 @@
 ﻿namespace ORMFinal.DAL
 {
-    public class ExhibtlDAL
+    public class ExhibtDAL
     {
         private readonly ORMFinalContext _context;
 
-        public ExhibtlDAL(ORMFinalContext context)
+        public ExhibtDAL(ORMFinalContext context)
         {
             _context = context;
         }

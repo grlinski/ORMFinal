@@ -9,3 +9,15 @@ C:\Users\g_lin\source\repos\ORMFinal.Models\obj\Debug\net8.0\ORMFinal.Models.dll
 C:\Users\g_lin\source\repos\ORMFinal.Models\obj\Debug\net8.0\refint\ORMFinal.Models.dll
 C:\Users\g_lin\source\repos\ORMFinal.Models\obj\Debug\net8.0\ORMFinal.Models.pdb
 C:\Users\g_lin\source\repos\ORMFinal.Models\obj\Debug\net8.0\ref\ORMFinal.Models.dll
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\bin\Debug\net8.0\ORMFinal.Models.deps.json
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\bin\Debug\net8.0\ORMFinal.Models.dll
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\bin\Debug\net8.0\ORMFinal.Models.pdb
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\obj\Debug\net8.0\ORMFinal.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\obj\Debug\net8.0\ORMFinal.Models.AssemblyInfoInputs.cache
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\obj\Debug\net8.0\ORMFinal.Models.AssemblyInfo.cs
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\obj\Debug\net8.0\ORMFinal.Models.csproj.CoreCompileInputs.cache
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\obj\Debug\net8.0\ORMFinal.Models.sourcelink.json
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\obj\Debug\net8.0\ORMFinal.Models.dll
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\obj\Debug\net8.0\refint\ORMFinal.Models.dll
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\obj\Debug\net8.0\ORMFinal.Models.pdb
+C:\Users\g_lin\source\repos\ORMFinalAllFiles\ORMFinal.Models\obj\Debug\net8.0\ref\ORMFinal.Models.dll

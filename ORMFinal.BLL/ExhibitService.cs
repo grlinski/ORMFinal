@@ -1,6 +1,6 @@
 ﻿namespace ORMFinal.BLL
 {
-    public class AnimalsService
+    public class FeedingSchedule
     {
 
     }
