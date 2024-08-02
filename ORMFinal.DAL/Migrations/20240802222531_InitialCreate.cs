@@ -26,21 +26,6 @@ namespace ORMFinal.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Employees",
-                columns: table => new
-                {
-                    EmployeeId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DateStarted = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateEnded = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Position = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Employees", x => x.EmployeeId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AnimalHealths",
                 columns: table => new
                 {
@@ -107,27 +92,25 @@ namespace ORMFinal.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ExhibitEmployees",
+                name: "Employees",
                 columns: table => new
                 {
-                    EmployeesEmployeeId = table.Column<int>(type: "int", nullable: false),
-                    ExhibitsExhibitId = table.Column<int>(type: "int", nullable: false)
+                    EmployeeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DateStarted = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateEnded = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Position = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    ExhibitId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ExhibitEmployees", x => new { x.EmployeesEmployeeId, x.ExhibitsExhibitId });
+                    table.PrimaryKey("PK_Employees", x => x.EmployeeId);
                     table.ForeignKey(
-                        name: "FK_ExhibitEmployees_Employees_EmployeesEmployeeId",
-                        column: x => x.EmployeesEmployeeId,
-                        principalTable: "Employees",
-                        principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ExhibitEmployees_Exhibits_ExhibitsExhibitId",
-                        column: x => x.ExhibitsExhibitId,
+                        name: "FK_Employees_Exhibits_ExhibitId",
+                        column: x => x.ExhibitId,
                         principalTable: "Exhibits",
                         principalColumn: "ExhibitId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -137,9 +120,9 @@ namespace ORMFinal.DAL.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ExhibitEmployees_ExhibitsExhibitId",
-                table: "ExhibitEmployees",
-                column: "ExhibitsExhibitId");
+                name: "IX_Employees_ExhibitId",
+                table: "Employees",
+                column: "ExhibitId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exhibits_AnimalId",
@@ -160,13 +143,10 @@ namespace ORMFinal.DAL.Migrations
                 name: "AnimalHealths");
 
             migrationBuilder.DropTable(
-                name: "ExhibitEmployees");
+                name: "Employees");
 
             migrationBuilder.DropTable(
                 name: "FeedingSchedules");
-
-            migrationBuilder.DropTable(
-                name: "Employees");
 
             migrationBuilder.DropTable(
                 name: "Exhibits");

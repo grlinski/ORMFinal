@@ -14,7 +14,8 @@ namespace ORMFinal.Models
         [StringLength(100)]
         public string Position { get; set; }
 
-        //Nav
-        public virtual ICollection<Exhibit> Exhibits { get; set; }
+        [ForeignKey("Exhibit")]
+        public int ExhibitId { get; set; }
+        public virtual Exhibit Exhibit { get; set; }
     }
 }

@@ -50,9 +50,10 @@ namespace ORMFinal.DAL
 
             //Exhibit to Employee Many to Many
             modelBuilder.Entity<Employee>()
-                .HasMany(e => e.Exhibits)
-                .WithMany(e => e.Employees)
-                .UsingEntity(j => j.ToTable("ExhibitEmployees"));
+                 .HasOne(e => e.Exhibit)
+                 .WithMany(ex => ex.Employees)
+                 .HasForeignKey(e => e.ExhibitId)
+                 .OnDelete(DeleteBehavior.Restrict);
 
             //Contraints
             modelBuilder.Entity<Animal>()

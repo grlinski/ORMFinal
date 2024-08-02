@@ -8,11 +8,9 @@ namespace ORMFinal.Models
         [Key]
         public int ExhibitId { get; set; }
 
-
         [Required]
         [StringLength(100)]
         public string Location { get; set; }
-
 
         [Required]
         public string Size { get; set; }
@@ -20,8 +18,6 @@ namespace ORMFinal.Models
         [ForeignKey("Animal")]
         public int AnimalId { get; set; }
         public virtual Animal Animal { get; set; }
-
-
 
         //Nav
         public virtual ICollection<Employee> Employees { get; set; }

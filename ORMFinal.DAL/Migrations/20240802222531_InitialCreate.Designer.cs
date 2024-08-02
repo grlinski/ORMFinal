@@ -12,7 +12,7 @@ using ORMFinal.DAL;
 namespace ORMFinal.DAL.Migrations
 {
     [DbContext(typeof(ORMFinalContext))]
-    [Migration("20240801233905_InitialCreate")]
+    [Migration("20240802222531_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,21 +24,6 @@ namespace ORMFinal.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("EmployeeExhibit", b =>
-                {
-                    b.Property<int>("EmployeesEmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ExhibitsExhibitId")
-                        .HasColumnType("int");
-
-                    b.HasKey("EmployeesEmployeeId", "ExhibitsExhibitId");
-
-                    b.HasIndex("ExhibitsExhibitId");
-
-                    b.ToTable("ExhibitEmployees", (string)null);
-                });
 
             modelBuilder.Entity("ORMFinal.Models.Animal", b =>
                 {
@@ -107,12 +92,17 @@ namespace ORMFinal.DAL.Migrations
                     b.Property<DateTime>("DateStarted")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("ExhibitId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Position")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("EmployeeId");
+
+                    b.HasIndex("ExhibitId");
 
                     b.ToTable("Employees");
                 });
@@ -175,21 +165,6 @@ namespace ORMFinal.DAL.Migrations
                     b.ToTable("FeedingSchedules");
                 });
 
-            modelBuilder.Entity("EmployeeExhibit", b =>
-                {
-                    b.HasOne("ORMFinal.Models.Employee", null)
-                        .WithMany()
-                        .HasForeignKey("EmployeesEmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ORMFinal.Models.Exhibit", null)
-                        .WithMany()
-                        .HasForeignKey("ExhibitsExhibitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ORMFinal.Models.AnimalHealth", b =>
                 {
                     b.HasOne("ORMFinal.Models.Animal", "Animal")
@@ -199,6 +174,17 @@ namespace ORMFinal.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Animal");
+                });
+
+            modelBuilder.Entity("ORMFinal.Models.Employee", b =>
+                {
+                    b.HasOne("ORMFinal.Models.Exhibit", "Exhibit")
+                        .WithMany("Employees")
+                        .HasForeignKey("ExhibitId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Exhibit");
                 });
 
             modelBuilder.Entity("ORMFinal.Models.Exhibit", b =>
@@ -232,6 +218,11 @@ namespace ORMFinal.DAL.Migrations
 
                     b.Navigation("FeedingSchedule")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ORMFinal.Models.Exhibit", b =>
+                {
+                    b.Navigation("Employees");
                 });
 #pragma warning restore 612, 618
         }
