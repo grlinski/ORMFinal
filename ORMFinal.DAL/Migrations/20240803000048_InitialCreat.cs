@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ORMFinal.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialCreat : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,10 @@ namespace ORMFinal.DAL.Migrations
                     AnimalId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AnimalCategory = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Habitat = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    Habitat = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    AnimalName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Species = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Genus = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {

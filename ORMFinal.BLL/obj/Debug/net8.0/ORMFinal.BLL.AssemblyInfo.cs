@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ORMFinal.BLL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+308b617d1dd026fb22952a58b7c4cf55b709f819")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2b6b5e5dc85978d38dc13bbecb243ecfcb18c8b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ORMFinal.BLL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ORMFinal.BLL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
