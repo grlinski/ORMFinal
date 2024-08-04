@@ -13,13 +13,16 @@ namespace ORMFinal.Models
         public string Location { get; set; }
 
         [Required]
+        [StringLength(100)]
         public string Size { get; set; }
 
-        [ForeignKey("Animal")]
+        [Required(ErrorMessage = "The Animal field is required.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Please select an animal.")]
+        [Display(Name = "Animal")]
         public int AnimalId { get; set; }
-        public virtual Animal Animal { get; set; }
 
-        //Nav
-        public virtual ICollection<Employee> Employees { get; set; }
+        [ForeignKey("AnimalId")]
+        public virtual Animal Animal { get; set; }
     }
+
 }

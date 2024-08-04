@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ORMFinal.Models.Exhibit>
+
+<h2>Exhibit List</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create New Exhibit</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Location</th>
+            <th>Size</th>
+            <th>Animal Id</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ExhibitId</td>
+                <td>@item.Location</td>
+                <td>@item.Size</td>
+                <td>@item.AnimalId</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.ExhibitId })" class="btn btn-primary">Edit</a>
+                    <form action="@Url.Action("Delete", new { id = item.ExhibitId })" method="post" style="display:inline;" onsubmit="return confirm('Are you sure to delete this item?');">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using ORMFinal.DAL;
+using ORMFinal.BLL;
 
 namespace ORMFinal
 {
@@ -13,6 +14,11 @@ namespace ORMFinal
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            // Configure logging
+            builder.Logging.ClearProviders(); // Clear default providers
+            builder.Logging.AddConsole(); // Add console logging
+            builder.Logging.AddDebug(); // Add debug logging
+            builder.Logging.SetMinimumLevel(LogLevel.Debug); // Set minimum log level
 
             //Register DB Context
             builder.Services.AddDbContext<ORMFinalContext>(options =>
@@ -20,7 +26,31 @@ namespace ORMFinal
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+
+
+
+
+            //// /////
+            builder.Services.AddTransient<ExhibitService>();
+            builder.Services.AddTransient<ExhibitDAL>();
+            builder.Services.AddTransient<EmployeeDAL>();
+            builder.Services.AddTransient<EmployeeService>();
+            builder.Services.AddTransient<AnimalService>();
+            builder.Services.AddTransient<AnimalDAL>();
+
+
+
+
+
+
+
+
+
+
             var app = builder.Build();
+            var logger = app.Services.GetRequiredService<ILogger<Program>>();
+            logger.LogInformation("Application started zzyzz.");
+            Console.WriteLine("Application started zzyzz.");
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

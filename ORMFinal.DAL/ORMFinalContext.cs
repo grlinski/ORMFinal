@@ -48,12 +48,12 @@ namespace ORMFinal.DAL
                 .HasForeignKey(e => e.AnimalId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            //Exhibit to Employee Many to Many
             modelBuilder.Entity<Employee>()
-                 .HasOne(e => e.Exhibit)
-                 .WithMany(ex => ex.Employees)
-                 .HasForeignKey(e => e.ExhibitId)
-                 .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(e => e.Exhibit)
+                .WithMany() // No need for the reverse navigation property in Exhibit
+                .HasForeignKey(e => e.ExhibitId)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
             //Contraints
             modelBuilder.Entity<Animal>()
