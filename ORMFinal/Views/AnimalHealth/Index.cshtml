@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AnimalHealth>
+
+@{
+    ViewData["Title"] = "Animal Health";
+}
+
+<h2>Animal Health</h2>
+<a class="btn btn-outline-success" href="@Url.Action("Create")">Create health for animal</a>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Health Report ID</th>
+            <th>Animal ID</th>
+            <th>Health Status</th>
+            <th>Report Date</th>
+            <th>Last Vaccination Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var AnimalHealth in Model)
+        {
+            <tr>
+                <td>@AnimalHealth.HealthReportId</td>
+                <td>@AnimalHealth.AnimalId</td>
+                <td>@AnimalHealth.HealthStatus</td>
+                <td>@AnimalHealth.ReportDate</td>
+                <td>@AnimalHealth.LastVaccinationDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

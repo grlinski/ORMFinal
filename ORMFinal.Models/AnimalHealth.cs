@@ -8,14 +8,14 @@ namespace ORMFinal.Models
         [Key]
         public int HealthReportId { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(50)]
         public string HealthStatus { get; set; }
 
         public DateTime ReportDate { get; set; }
         public DateTime LastVaccinationDate { get; set; }
 
-        [ForeignKey("Animal")]
+        [ForeignKey("AnimalId")]
         public int AnimalId { get; set; }
         public virtual Animal Animal { get; set; }
     }

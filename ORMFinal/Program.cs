@@ -37,7 +37,8 @@ namespace ORMFinal
             builder.Services.AddTransient<EmployeeService>();
             builder.Services.AddTransient<AnimalService>();
             builder.Services.AddTransient<AnimalDAL>();
-
+            builder.Services.AddScoped<AnimalHealthDAL>();
+            builder.Services.AddScoped<AnimalHealthService>();
 
 
 
