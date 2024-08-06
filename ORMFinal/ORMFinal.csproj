@@ -22,4 +22,16 @@
     <ProjectReference Include="..\ORMFinal.Models\ORMFinal.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\img\angel-luciano-zTGzwYKXC-A-unsplash.jpg" />
+    <None Include="wwwroot\img\dennis-mettler-vnh38_lMnj4-unsplash.jpg" />
+    <None Include="wwwroot\img\javygo-OTYzpn6_edw-unsplash.jpg" />
+    <None Include="wwwroot\img\p1.jpg" />
+    <None Include="wwwroot\img\wilkins-morales-eLcPJeK_Unk-unsplash.jpg" />
+  </ItemGroup>
+
 </Project>
