@@ -1,0 +1,44 @@
+﻿@model IEnumerable<FeedingSchedule>
+
+@{
+    ViewData["Title"] = "Feeding Schedule";
+}
+
+<h2 class="display-1 text-center my-4">Feeding Schedule</h2>
+
+<div class="text-center my-4">
+<a class="btn btn-primary active btn-lg my-4" href="@Url.Action("Create")"><i class="fa fa-plus me-2"></i>Create feeding schedule</a>
+</div>
+
+<table class="table table-sm table-responsive">
+    <thead>
+        <tr>
+            <th>Feeding Schedule ID</th>
+            <th>Animal ID</th>
+            <th>Morning feeding</th>
+            <th>Noon feeding</th>
+            <th>Evening feeding</th>
+            <th>Night feeding</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var FeedingSchedule in Model)
+        {
+            <tr>
+                <td>@FeedingSchedule.FeedingScheduleId</td>
+                <td>@FeedingSchedule.AnimalId</td>
+                <td>@FeedingSchedule.MorningFeeding</td>
+                <td>@FeedingSchedule.NoonFeeding</td>
+                <td>@FeedingSchedule.EveningFeeding</td>
+                <td>@FeedingSchedule.NightFeeding</td>
+                <td class="text-center btn-group">
+                    <a class="btn btn-primary me-2 rounded-pill shadow d-flex align-items-center" href="@Url.Action("Edit", new { id = FeedingSchedule.FeedingScheduleId })"><i class="fa fa-edit me-2"></i>Edit</a>
+                <form asp-action="Delete" asp-controller="FeedingSchedule" method="post">
+                    <input type="hidden" name="id" value="@FeedingSchedule.FeedingScheduleId" />
+                        <button type="submit" class="btn btn-danger rounded-pill shadow d-flex align-items-center"><i class="fa fa-trash me-2"></i>Delete</button>
+                </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

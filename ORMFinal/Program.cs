@@ -33,14 +33,21 @@ namespace ORMFinal
             //// /////
             builder.Services.AddTransient<ExhibitService>();
             builder.Services.AddTransient<ExhibitDAL>();
+
             builder.Services.AddTransient<EmployeeDAL>();
             builder.Services.AddTransient<EmployeeService>();
+
             builder.Services.AddTransient<AnimalService>();
             builder.Services.AddTransient<AnimalDAL>();
+
             builder.Services.AddScoped<AnimalHealthDAL>();
             builder.Services.AddScoped<AnimalHealthService>();
+
             builder.Services.AddScoped<AnimalDAL>();
             builder.Services.AddScoped<AnimalService>();
+
+            builder.Services.AddScoped<FeedingScheduleDAL>();
+            builder.Services.AddScoped<FeedingScheduleService>();
 
 
 

@@ -13,7 +13,7 @@ namespace ORMFinal.Models
         public DateTime? NightFeeding { get; set; }
 
 
-
+        [Required]
         [ForeignKey("Animal")]
         public int AnimalId { get; set; }
         public virtual Animal Animal { get; set; }

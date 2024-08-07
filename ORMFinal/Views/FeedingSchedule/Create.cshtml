@@ -1,0 +1,45 @@
+﻿@model ORMFinal.Models.FeedingSchedule
+
+<h2 class="display-1 text-center my-4">Create Feeding Schedule</h2>
+
+@using (Html.BeginForm("Create", "FeedingSchedule", FormMethod.Post))
+{
+    <div class="form-group mb-3">
+        <label for="MorningFeeding" class="form-label">Morning feeding</label>
+        <input type="date" class="form-control" id="MorningFeeding" name="MorningFeeding" value="@Model.MorningFeeding" />
+    </div>
+    <div class="form-group mb-3">
+        <label for="NoonFeeding">Noon Feeding</label>
+        <input type="date" class="form-control" id="NoonFeeding" name="NoonFeeding" value="@Model.NoonFeeding?.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="form-group mb-3">
+        <label for="EveningFeeding">Evening feeding</label>
+        <input type="date" class="form-control" id="EveningFeeding" name="EveningFeeding" value="@Model.EveningFeeding?.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="form-group mb-3">
+        <label for="NightFeeding">Evening feeding</label>
+        <input type="date" class="form-control" id="NightFeeding" name="NightFeeding" value="@Model.NightFeeding?.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="form-group mb-3">
+        <label for="AnimalId">Animal</label>
+        <select class="form-control" id="AnimalId" name="AnimalId" asp-items="ViewBag.Animals">
+            <option value="">-- Select Animal --</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary active btn-lg my-4" name="action" value="CreateFeedingSchedule" id="createButton" disabled><i class="fa fa-plus me-2"></i>Create feeding schedule</button>
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const animalDropdown = document.getElementById("AnimalId");
+        const createButton = document.getElementById("createButton");
+
+        animalDropdown.addEventListener("change", function() {
+            if (animalDropdown.value) {
+                createButton.removeAttribute("disabled");
+            } else {
+                createButton.setAttribute("disabled", "disabled");
+            }
+        });
+    });
+</script>
