@@ -29,19 +29,59 @@ namespace ORMFinal.Controllers
             return View(exhibits);
         }
 
-        // Deletion Functions
+
+        //Index Search
+        [HttpGet]
+        public IActionResult Index(string searchLocation, string searchSize)
+        {
+            var exhibits = _exhibitService.GetExhibits();
+
+            if (!string.IsNullOrEmpty(searchLocation))
+            {
+                exhibits = exhibits.Where(e => e.Location.Contains(searchLocation)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(searchSize))
+            {
+                exhibits = exhibits.Where(e => e.Size.Contains(searchSize)).ToList();
+            }
+
+            ViewBag.SearchLocation = searchLocation;
+            ViewBag.SearchSize = searchSize;
+
+            return View(exhibits);
+        }
+
+
+
+
+        // Delete Exhibit
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            _logger.LogInformation("Deleting Exhibit with Id: {Id}", id);
-            _exhibitService.DeleteExhibit(id);
-            return RedirectToAction("Index");
+            try
+            {
+                var exhibit = _exhibitService.GetExhibitById(id);
+                if (exhibit == null)
+                {
+                    return NotFound();
+                }
+
+                _exhibitService.DeleteExhibit(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = "Cannot delete this exhibit as it is associated with employees.";
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         // Creation Functions
         [HttpGet]
         public IActionResult Create()
         {
+            //Delete Employees later, not sure it's doing anything
             ViewBag.Employees = _employeeService.GetEmployees();
             ViewBag.Animals = new SelectList(_animalService.GetAllAnimals(), "AnimalId", "AnimalName");
             return View(new Exhibit());

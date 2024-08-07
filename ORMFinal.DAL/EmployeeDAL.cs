@@ -17,13 +17,13 @@ namespace ORMFinal.DAL
         }
 
         //public List<Employee> GetEmployees()
-        //{
-        //    return _context.Employees.ToList();
-        //}
+
         public List<Employee> GetEmployees()
         {
             return _context.Employees.Include(e => e.Exhibit).ToList();
         }
+
+
         public Employee GetEmployeeById(int id)
         {
             return _context.Employees
@@ -33,22 +33,13 @@ namespace ORMFinal.DAL
 
 
 
+        // create
         public void AddEmployee(Employee newEmployee)
         {
-            _logger.LogInformation("AddEmployee method in DAL called.");
-
-            try
-            {
-                _context.Employees.Add(newEmployee);
-                _context.SaveChanges();
-                _logger.LogInformation("Employee added to database.");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error adding employee to database.");
-                throw; // Optionally rethrow the exception or handle it accordingly
-            }
+            _context.Employees.Add(newEmployee);
+            _context.SaveChanges();
         }
+
 
 
 
@@ -68,5 +59,14 @@ namespace ORMFinal.DAL
                 _context.SaveChanges();
             }
         }
+
+
+        // Validation
+        public bool HasEmployeesForExhibit(int exhibitId)
+        {
+            return _context.Employees.Any(e => e.ExhibitId == exhibitId);
+        }
+
+
     }
 }

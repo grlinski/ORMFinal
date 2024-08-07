@@ -1,0 +1,29 @@
+﻿@model ORMFinal.Models.Employee
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label for="Position">Position</label>
+        <input type="text" id="Position" name="Position" value="@Model.Position" />
+    </div>
+    <div>
+        <label for="DateStarted">Date Started</label>
+        <input type="date" id="DateStarted" name="DateStarted" value="@Model.DateStarted.ToString("yyyy-MM-dd")" />
+    </div>
+    <div>
+        <label for="DateEnded">Date Ended</label>
+        <input type="date" id="DateEnded" name="DateEnded" value="@Model.DateEnded?.ToString("yyyy-MM-dd")" />
+    </div>
+    <div>
+        <label for="ExhibitId">Exhibit</label>
+        <select id="ExhibitId" name="ExhibitId">
+            <option value="">Select an Exhibit</option>
+            @foreach (var exhibit in (SelectList)ViewBag.Exhibits)
+            {
+                <option value="@exhibit.Value">@exhibit.Text</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit">Add</button>
+}

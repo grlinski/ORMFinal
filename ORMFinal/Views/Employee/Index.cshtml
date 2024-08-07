@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ORMFinal.Models.Employee>
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h2>Employee List</h2>
+
+<!--Search Form -->
+<form method="get" action="/Employee/Index" class="search-form">
+    <div>
+        <label for="searchPosition">Search by Position</label>
+        <input type="text" id="searchPosition" name="searchPosition" value="@ViewBag.SearchPosition" />
+    </div>
+    <div>
+        <label for="searchExhibit">Search by Exhibit</label>
+        <input type="text" id="searchExhibit" name="searchExhibit" value="@ViewBag.SearchExhibit" />
+    </div>
+    <button type="submit">Search</button>
+</form>
+
+
+<!--Create button  -->
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create New Employee</a>
+</p>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>Id</th>
+            <th>Position</th>
+            <th>Date Started</th>
+            <th>
+                <a href="/Employee/Index?sortOrder=@(ViewBag.SortOrder == "date_asc" ? "date_desc" : "date_asc")">
+                    Date Started
+                    @if (ViewBag.SortOrder == "date_asc")
+                    {
+                        <i class="fa fa-sort-asc"></i>
+                    }
+                    else if (ViewBag.SortOrder == "date_desc")
+                    {
+                        <i class="fa fa-sort-desc"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-sort"></i>
+                    }
+                </a>
+            </th>
+            <th>Date Ended</th>
+            <th>Exhibit</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeId</td>
+                <td>@item.Position</td>
+                <td>@item.DateStarted</td>
+                
+                <td>@item.DateEnded</td>
+                <td>@item.Exhibit?.Location</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.EmployeeId })" class="btn btn-secondary">Edit</a>
+
+                    <form action="/Employee/Delete" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@item.EmployeeId" />
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

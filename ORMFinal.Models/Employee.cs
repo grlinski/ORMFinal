@@ -15,7 +15,7 @@ namespace ORMFinal.Models
         public string Position { get; set; }
 
         [ForeignKey("Exhibit")]
-        public int ExhibitId { get; set; }
-        public virtual Exhibit Exhibit { get; set; }
+        public int? ExhibitId { get; set; }
+        public virtual Exhibit? Exhibit { get; set; }
     }
 }

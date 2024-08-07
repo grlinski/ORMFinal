@@ -1,0 +1,24 @@
+﻿@model ORMFinal.Models.Employee
+
+@using (Html.BeginForm("Edit", "Employee", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.EmployeeId)
+    <div>
+        <label for="Position">Position</label>
+        <input type="text" id="Position" name="Position" value="@Model.Position" />
+    </div>
+    <div>
+        <label for="DateStarted">Date Started</label>
+        <input type="date" id="DateStarted" name="DateStarted" value="@Model.DateStarted.ToString("yyyy-MM-dd")" />
+    </div>
+    <div>
+        <label for="DateEnded">Date Ended</label>
+        <input type="date" id="DateEnded" name="DateEnded" value="@Model.DateEnded?.ToString("yyyy-MM-dd")" />
+    </div>
+    <div>
+        <label for="ExhibitId">Exhibit</label>
+        @Html.DropDownListFor(model => model.ExhibitId, (SelectList)ViewBag.Exhibits, "Select an Exhibit", new { @id = "ExhibitId", @name = "ExhibitId" })
+    </div>
+
+    <button type="submit">Save</button>
+}

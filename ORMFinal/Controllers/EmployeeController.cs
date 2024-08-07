@@ -1,9 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using ORMFinal.BLL;
 using ORMFinal.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
+
+
+using Microsoft.AspNetCore.Mvc;
+using ORMFinal.BLL;
+using ORMFinal.Models;
+using System.Linq;
 
 namespace ORMFinal.Controllers
 {
@@ -11,35 +18,53 @@ namespace ORMFinal.Controllers
     {
         private readonly EmployeeService _employeeService;
         private readonly ExhibitService _exhibitService;
-        private readonly ILogger<EmployeeController> _logger;
 
-        public EmployeeController(EmployeeService employeeService, ExhibitService exhibitService, ILogger<EmployeeController> logger)
+        public EmployeeController(EmployeeService employeeService, ExhibitService exhibitService)
         {
             _employeeService = employeeService;
             _exhibitService = exhibitService;
-            _logger = logger;
         }
 
-
-        public IActionResult Index()
+        // Index method with search and sort functionality
+        [HttpGet]
+        public IActionResult Index(string searchPosition, string searchExhibit, string sortOrder)
         {
             var employees = _employeeService.GetEmployees();
+
+            // Filter by search criteria
+            if (!string.IsNullOrEmpty(searchPosition))
+            {
+                employees = employees.Where(e => e.Position.Contains(searchPosition)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(searchExhibit))
+            {
+                employees = employees.Where(e => e.Exhibit != null && e.Exhibit.Location.Contains(searchExhibit)).ToList();
+            }
+
+            // Sort by date
+            switch (sortOrder)
+            {
+                case "date_asc":
+                    employees = employees.OrderBy(e => e.DateStarted).ToList();
+                    break;
+                case "date_desc":
+                    employees = employees.OrderByDescending(e => e.DateStarted).ToList();
+                    break;
+                default:
+                    employees = employees.OrderBy(e => e.EmployeeId).ToList();
+                    break;
+            }
+
+            ViewBag.SortOrder = sortOrder;
+            ViewBag.SearchPosition = searchPosition;
+            ViewBag.SearchExhibit = searchExhibit;
+
             return View(employees);
         }
 
-
-
-        [HttpPost]
-        public IActionResult Delete(int id)
-        {
-            _employeeService.DeleteEmployee(id);
-            return RedirectToAction("Index");
-        }
-
-
-
-
-
+        // Create methods
+        [HttpGet]
         public IActionResult Create()
         {
             ViewBag.Exhibits = new SelectList(_exhibitService.GetExhibits(), "ExhibitId", "Location");
@@ -47,50 +72,50 @@ namespace ORMFinal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Employee newEmployee)
+        public IActionResult Create(Employee employee)
         {
-            _logger.LogInformation("Create action called.");
-
-            // Log the state of the employee object
-            _logger.LogInformation($"Received Employee: Position={newEmployee.Position}, DateStarted={newEmployee.DateStarted}, DateEnded={newEmployee.DateEnded}, ExhibitId={newEmployee.ExhibitId}");
-
             if (ModelState.IsValid)
             {
-                _logger.LogInformation("Model state is valid.");
-
-                try
-                {
-                    // Set ExhibitId to 1 for testing purposes
-                    newEmployee.ExhibitId = 1;
-
-                    _employeeService.AddEmployee(newEmployee);
-                    _logger.LogInformation("Employee added successfully.");
-                    return RedirectToAction(nameof(Index));
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "Error adding employee.");
-                    ModelState.AddModelError("", "An error occurred while creating the employee. Please try again.");
-                }
+                _employeeService.AddEmployee(employee);
+                return RedirectToAction("Index");
             }
-            else
-            {
-                // Log any model state errors
-                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-                {
-                    _logger.LogWarning($"Model state error: {error.ErrorMessage}");
-                }
-            }
-
-            // Repopulate the ViewBag for the dropdown (if you need it for other purposes)
             ViewBag.Exhibits = new SelectList(_exhibitService.GetExhibits(), "ExhibitId", "Location");
-            return View(newEmployee);
+            return View(employee);
         }
 
+        // Delete method
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            _employeeService.DeleteEmployee(id);
+            return RedirectToAction("Index");
+        }
 
+        // Edit methods
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var employee = _employeeService.GetEmployeeById(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
 
+            ViewBag.Exhibits = new SelectList(_exhibitService.GetExhibits(), "ExhibitId", "Location", employee.ExhibitId);
+            return View(employee);
+        }
 
-
-
+        [HttpPost]
+        public IActionResult Edit(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                _employeeService.UpdateEmployee(employee);
+                return RedirectToAction("Index");
+            }
+            ViewBag.Exhibits = new SelectList(_exhibitService.GetExhibits(), "ExhibitId", "Location", employee.ExhibitId);
+            return View(employee);
+        }
     }
 }
+

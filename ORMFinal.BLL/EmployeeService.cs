@@ -51,6 +51,12 @@ namespace ORMFinal.BLL
 
 
 
+        // 
+        public bool HasEmployeesForExhibit(int exhibitId)
+        {
+            return _employeeDAL.HasEmployeesForExhibit(exhibitId);
+        }
+
 
     }
 }

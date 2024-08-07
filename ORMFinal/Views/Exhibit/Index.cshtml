@@ -6,6 +6,21 @@
 
 <h2>Exhibit List</h2>
 
+
+<!-- Search Form -->
+<form method="get" action="/Exhibit/Index" class="search-form">
+    <div>
+        <label for="searchLocation">Search by Location</label>
+        <input type="text" id="searchLocation" name="searchLocation" value="@ViewBag.SearchLocation" />
+    </div>
+    <div>
+        <label for="searchSize">Search by Size</label>
+        <input type="text" id="searchSize" name="searchSize" value="@ViewBag.SearchSize" />
+    </div>
+    <button type="submit">Search</button>
+</form>
+
+
 <p>
     <a href="@Url.Action("Create")" class="btn btn-outline-success">Create New Exhibit</a>
 </p>
@@ -18,7 +33,7 @@
             <th>Size of Exhibit</th>
             <th>Animal Id</th>
             <th>Animal Name</th>
-            <th>Actions</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
