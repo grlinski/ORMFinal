@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AnimalViewModel>
+
+<h2>Animals</h2>
+
+<form asp-action="Index" method="get">
+    <div class="form-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Search animals...">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<div>
+    @using (Html.BeginForm("Create", "Animal", FormMethod.Get, new { style = "display:inline;" }))
+    {
+        <button type="submit" class="btn btn-success">
+            Add an Animal
+        </button>
+    }
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Animal Name</th>
+            <th>Category</th>
+            <th>Habitat</th>
+            <th>Species</th>
+            <th>Genus</th>
+            <th>Morning Feeding</th>
+            <th>Noon Feeding</th>
+            <th>Evening Feeding</th>
+            <th>Night Feeding</th>
+            <th>Health Status</th>
+            <th>Report Date</th>
+            <th>Last Vaccination Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var viewModel in Model) {
+            <tr>
+                <td>@viewModel.AnimalName</td>
+                <td>@viewModel.AnimalCategory</td>
+                <td>@viewModel.Habitat</td>
+                <td>@viewModel.Species</td>
+                <td>@viewModel.Genus</td>
+                <td>@viewModel.MorningFeeding?.ToString()</td>
+                <td>@viewModel.NoonFeeding?.ToString()</td>
+                <td>@viewModel.EveningFeeding?.ToString()</td>
+                <td>@viewModel.NightFeeding?.ToString()</td>
+                <td>@viewModel.HealthStatus</td>
+                <td>@viewModel.ReportDate?.ToString()</td>
+                <td>@viewModel.LastVaccinationDate?.ToString()</td>
+                <td class="d-flex">
+                    <div>
+                        @using (Html.BeginForm("Update", "Animal", FormMethod.Get, new { style = "display:inline;" })) {
+                            @Html.Hidden("id", viewModel.AnimalId)
+                            <button type="submit" class="btn btn-primary">
+                                Edit
+                            </button>
+                        }
+                    </div>
+                    <div>
+                        @using (Html.BeginForm("Delete", "Animal", FormMethod.Post, new { style = "display:inline;" })) {
+                            @Html.Hidden("id", viewModel.AnimalId)
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this animal?');">
+                                Delete
+                            </button>
+                        }
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

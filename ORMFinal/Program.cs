@@ -39,6 +39,8 @@ namespace ORMFinal
             builder.Services.AddTransient<AnimalDAL>();
             builder.Services.AddScoped<AnimalHealthDAL>();
             builder.Services.AddScoped<AnimalHealthService>();
+            builder.Services.AddScoped<AnimalDAL>();
+            builder.Services.AddScoped<AnimalService>();
 
 
 

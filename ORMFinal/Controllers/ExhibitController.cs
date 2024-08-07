@@ -83,7 +83,7 @@ namespace ORMFinal.Controllers
         {
             //Delete Employees later, not sure it's doing anything
             ViewBag.Employees = _employeeService.GetEmployees();
-            ViewBag.Animals = new SelectList(_animalService.GetAllAnimals(), "AnimalId", "AnimalName");
+            ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName");
             return View(new Exhibit());
         }
 
@@ -108,7 +108,7 @@ namespace ORMFinal.Controllers
                 if (exhibit.AnimalId == 0)
                 {
                     ModelState.AddModelError("AnimalId", "Please select an animal.");
-                    ViewBag.Animals = new SelectList(_animalService.GetAllAnimals(), "AnimalId", "AnimalName");
+                    ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName");
                     return View(exhibit);
                 }
 
@@ -136,7 +136,7 @@ namespace ORMFinal.Controllers
             _logger.LogInformation("Fetched exhibit: {@Exhibit}", exhibit);
 
             // Populate the animals dropdown
-            ViewBag.Animals = new SelectList(_animalService.GetAllAnimals(), "AnimalId", "AnimalName", exhibit.AnimalId);
+            ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName", exhibit.AnimalId);
 
             return View(exhibit);
         }
@@ -185,7 +185,7 @@ namespace ORMFinal.Controllers
             }
 
             // Ensure the select list is available in case of a model state error
-            ViewBag.Animals = new SelectList(_animalService.GetAllAnimals(), "AnimalId", "AnimalName", exhibit.AnimalId);
+            ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName", exhibit.AnimalId);
             return View(exhibit);
         }
 

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using ORMFinal.DAL;
 using ORMFinal.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ORMFinal.BLL
 {
@@ -51,14 +53,19 @@ namespace ORMFinal.BLL
             _exhibitDAL.DeleteExhibit(id);
         }
 
-        public List<Animal> GetAllAnimals()
+        public List<Animal> GetAllAnimalsList()
         {
-            return _animalService.GetAllAnimals();
+            return _animalService.GetAllAnimalsList();
+        }
+
+        public IEnumerable<Animal> GetAllAnimalsEnum()
+        {
+            return _animalService.GetAllAnimalsEnum();
         }
 
         public Animal GetAnimalById(int animalId)
         {
-            return _animalService.GetAllAnimals().FirstOrDefault(a => a.AnimalId == animalId);
+            return _animalService.GetAllAnimalsList().FirstOrDefault(a => a.AnimalId == animalId);
         }
     }
 }

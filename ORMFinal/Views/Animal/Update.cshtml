@@ -1,0 +1,33 @@
+﻿@model AnimalViewModel
+
+<form asp-action="Update">
+    @Html.HiddenFor(a => a.AnimalId)
+    <div>
+        @Html.LabelFor(a => a.AnimalCategory)
+        @Html.TextBoxFor(a => a.AnimalCategory, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.AnimalCategory, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(a => a.Habitat)
+        @Html.TextBoxFor(a => a.Habitat, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Habitat, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(a => a.AnimalName)
+        @Html.TextBoxFor(a => a.AnimalName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.AnimalName, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(a => a.Species)
+        @Html.TextBoxFor(a => a.Species, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Species, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(a => a.Genus)
+        @Html.TextBoxFor(a => a.Genus, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Genus, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        <input type="submit" value="Update" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,71 @@
+﻿@model AnimalViewModel
+
+<form asp-action="Create">
+    <div>
+        @Html.LabelFor(a => a.AnimalCategory)
+        @Html.TextBoxFor(a => a.AnimalCategory, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.AnimalCategory, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(a => a.Habitat)
+        @Html.TextBoxFor(a => a.Habitat, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Habitat, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(a => a.AnimalName)
+        @Html.TextBoxFor(a => a.AnimalName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.AnimalName, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(a => a.Species)
+        @Html.TextBoxFor(a => a.Species, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Species, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(a => a.Genus)
+        @Html.TextBoxFor(a => a.Genus, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Genus, "", new { @class = "text-danger" })
+    </div>
+
+    <!-- Simple fields for FeedingSchedule and AnimalHealth -->
+    <h4>Animal Health</h4>
+    <div>
+        @Html.LabelFor(model => model.HealthStatus)
+        @Html.TextBoxFor(model => model.HealthStatus, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.HealthStatus, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(model => model.ReportDate)
+        @Html.TextBoxFor(model => model.ReportDate, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.ReportDate, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(model => model.LastVaccinationDate)
+        @Html.TextBoxFor(model => model.LastVaccinationDate, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.LastVaccinationDate, "", new { @class = "text-danger" })
+    </div>
+    <h4>Feeding Schedule</h4>
+    <div>
+        @Html.LabelFor(model => model.MorningFeeding)
+        @Html.TextBoxFor(model => model.MorningFeeding, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.MorningFeeding, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(model => model.NoonFeeding)
+        @Html.TextBoxFor(model => model.NoonFeeding, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NoonFeeding, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(model => model.EveningFeeding)
+        @Html.TextBoxFor(model => model.EveningFeeding, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.EveningFeeding, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(model => model.NightFeeding)
+        @Html.TextBoxFor(model => model.NightFeeding, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NightFeeding, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>

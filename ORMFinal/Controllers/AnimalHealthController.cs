@@ -37,7 +37,7 @@ namespace ORMFinal.Controllers
         public IActionResult Create()
         {
             // Populate ViewBag with animals to select from
-            ViewBag.Animals = new SelectList(_animalService.GetAllAnimals(), "AnimalId", "AnimalName");
+            ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName");
             return View(new AnimalHealth());
         }
 
@@ -62,7 +62,7 @@ namespace ORMFinal.Controllers
                 if (animalHealth.AnimalId == 0)
                 {
                     ModelState.AddModelError("AnimalId", "Please select an animal.");
-                    ViewBag.Animals = new SelectList(_animalService.GetAllAnimals(), "AnimalId", "AnimalName");
+                    ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName");
                     return View(animalHealth);
                 }
 
@@ -70,7 +70,7 @@ namespace ORMFinal.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Animals = new SelectList(_animalService.GetAllAnimals(), "AnimalId", "AnimalName");
+            ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName");
             return View(animalHealth);
         }
 
