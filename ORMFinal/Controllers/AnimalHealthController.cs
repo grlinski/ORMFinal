@@ -24,7 +24,9 @@ namespace ORMFinal.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var animalHealthList = _animalHealthService.GetAnimalHealth();
+            var animalHealthList = _animalHealthService.GetAnimalHealthPlusAnimals();
+
+            //var animalHealthList = _animalHealthService.GetAnimalHealth();
             return View(animalHealthList);
         }
 

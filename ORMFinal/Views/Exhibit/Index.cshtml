@@ -1,18 +1,23 @@
 ﻿@model IEnumerable<ORMFinal.Models.Exhibit>
+@{
+    ViewData["Title"] = "Exhibits";
+}
+
 
 <h2>Exhibit List</h2>
 
 <p>
-    <a href="@Url.Action("Create")" class="btn btn-primary">Create New Exhibit</a>
+    <a href="@Url.Action("Create")" class="btn btn-outline-success">Create New Exhibit</a>
 </p>
 
-<table class="table">
+<table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Exhibit Id</th>
             <th>Location</th>
-            <th>Size</th>
+            <th>Size of Exhibit</th>
             <th>Animal Id</th>
+            <th>Animal Name</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -24,6 +29,7 @@
                 <td>@item.Location</td>
                 <td>@item.Size</td>
                 <td>@item.AnimalId</td>
+                <td>@item.Animal?.AnimalName</td>
                 <td>
                     <a href="@Url.Action("Edit", new { id = item.ExhibitId })" class="btn btn-primary">Edit</a>
                     <form action="@Url.Action("Delete", new { id = item.ExhibitId })" method="post" style="display:inline;" onsubmit="return confirm('Are you sure to delete this item?');">

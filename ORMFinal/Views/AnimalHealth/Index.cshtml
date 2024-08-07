@@ -12,6 +12,7 @@
         <tr>
             <th>Health Report ID</th>
             <th>Animal ID</th>
+            <th>Animal Name</th>
             <th>Health Status</th>
             <th>Report Date</th>
             <th>Last Vaccination Date</th>
@@ -23,6 +24,7 @@
             <tr>
                 <td>@AnimalHealth.HealthReportId</td>
                 <td>@AnimalHealth.AnimalId</td>
+                <td>@AnimalHealth.Animal?.AnimalName</td>
                 <td>@AnimalHealth.HealthStatus</td>
                 <td>@AnimalHealth.ReportDate</td>
                 <td>@AnimalHealth.LastVaccinationDate</td>

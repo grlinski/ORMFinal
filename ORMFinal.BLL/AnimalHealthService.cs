@@ -50,7 +50,10 @@ namespace ORMFinal.BLL
             _logger.LogInformation("Deleting Animal Health Report with Id: {Id}", id);
             await _animalHealthDAL.DeleteAnimalHealth(id);
         }
-
+        public List<AnimalHealth> GetAnimalHealthPlusAnimals()
+        {
+            return _animalHealthDAL.GetAnimalHealthPlusAnimals();
+        }
 
     }
 }

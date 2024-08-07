@@ -63,6 +63,9 @@ namespace ORMFinal.DAL
             }
         }
 
-
+        public List<AnimalHealth> GetAnimalHealthPlusAnimals()
+        {
+            return _context.AnimalHealths.Include(a => a.Animal).ToList();
+        }
     }
 }
