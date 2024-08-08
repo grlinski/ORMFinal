@@ -28,7 +28,7 @@ namespace ORMFinal.Controllers
                                               a.Genus.Contains(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
-            var animalViewModels = animals.Select(a => new AnimalViewModel
+            var animalViewModels = animals.Select(a => new Animal
             {
                 AnimalId = a.AnimalId,
                 AnimalCategory = a.AnimalCategory,
@@ -36,13 +36,7 @@ namespace ORMFinal.Controllers
                 AnimalName = a.AnimalName,
                 Species = a.Species,
                 Genus = a.Genus,
-                MorningFeeding = a.FeedingSchedule?.MorningFeeding,
-                NoonFeeding = a.FeedingSchedule?.NoonFeeding,
-                EveningFeeding = a.FeedingSchedule?.EveningFeeding,
-                NightFeeding = a.FeedingSchedule?.NightFeeding,
-                HealthStatus = a.AnimalHealth?.HealthStatus,
-                ReportDate = a.AnimalHealth?.ReportDate,
-                LastVaccinationDate = a.AnimalHealth?.LastVaccinationDate
+
             }).ToList();
             return View(animalViewModels);
         }
@@ -54,7 +48,7 @@ namespace ORMFinal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(AnimalViewModel viewModel)
+        public IActionResult Create(Animal viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +83,7 @@ namespace ORMFinal.Controllers
                 return NotFound("There is no animal with that id");
             }
 
-            var animalViewModel = new AnimalViewModel
+            var animalViewModel = new Animal
             {
                 AnimalId = animal.AnimalId,
                 AnimalCategory = animal.AnimalCategory,
@@ -103,7 +97,7 @@ namespace ORMFinal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(AnimalViewModel animalViewModel)
+        public IActionResult Update(Animal animalViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -128,8 +122,17 @@ namespace ORMFinal.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            _animalService.DeleteAnimal(id);
-            return RedirectToAction("Index");
+            try
+            {
+                _animalService.DeleteAnimal(id);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Unable to delete the animal. It may be referenced by other records.";
+                // Optionally, log the exception message somewhere for debugging
+                return RedirectToAction("Index");
+            }
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using ORMFinal.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ORMFinal.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,12 +22,20 @@ namespace ORMFinal.DAL
 
         public IEnumerable<Animal> GetAllAnimals()
         {
-            return _context.Animals.ToList();
+            return _context.Animals
+                .Include(a => a.FeedingSchedule)
+                .Include(a => a.AnimalHealth)
+                .Include(a => a.Exhibits)
+                .ToList();
         }
 
         public Animal GetAnimalById(int id)
         {
-            return _context.Animals.Find(id);
+            return _context.Animals
+                .Include(a => a.FeedingSchedule)
+                .Include(a => a.AnimalHealth)
+                .Include(a => a.Exhibits)
+                .FirstOrDefault(a => a.AnimalId == id);
         }
 
         public void UpdateAnimal(Animal animal)
@@ -35,9 +44,19 @@ namespace ORMFinal.DAL
             _context.SaveChanges();
         }
 
+
+
+
+
+        //This needs to delete a slew of other values
         public void DeleteAnimal(int id)
         {
-            var animal = _context.Animals.Find(id);
+            var animal = _context.Animals
+                .Include(a => a.FeedingSchedule)
+                .Include(a => a.AnimalHealth)
+                .Include(a => a.Exhibits)
+                .FirstOrDefault(a => a.AnimalId == id);
+
             if (animal != null)
             {
                 _context.Animals.Remove(animal);

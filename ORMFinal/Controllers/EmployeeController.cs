@@ -7,11 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 
 
-using Microsoft.AspNetCore.Mvc;
-using ORMFinal.BLL;
-using ORMFinal.Models;
-using System.Linq;
-
 namespace ORMFinal.Controllers
 {
     public class EmployeeController : Controller

@@ -49,7 +49,15 @@ namespace ORMFinal.BLL
 
         public void DeleteAnimal(int id)
         {
-            _animalDAL.DeleteAnimal(id);
+            try
+            {
+                _animalDAL.DeleteAnimal(id);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error deleting animal with id {id}");
+                throw;
+            }
         }
     }
 }

@@ -46,13 +46,13 @@ namespace ORMFinal.DAL
                 .HasOne(e => e.Animal)
                 .WithMany(a => a.Exhibits)
                 .HasForeignKey(e => e.AnimalId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Employee>()
                 .HasOne(e => e.Exhibit)
                 .WithMany() // No need for the reverse navigation property in Exhibit
                 .HasForeignKey(e => e.ExhibitId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
 
             //Contraints
