@@ -2784,24 +2784,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\g_lin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\a_olu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\g_lin\\source\\repos\\ORMFinalAllFiles\\ORMFinal.BLL\\ORMFinal.BLL.csproj",
+      "projectUniqueName": "C:\\Users\\a_olu\\OneDrive\\Documents\\MITT\\Advanced Database and ORM Concepts\\ORMFinal\\ORMFinal.BLL\\ORMFinal.BLL.csproj",
       "projectName": "ORMFinal.BLL",
-      "projectPath": "C:\\Users\\g_lin\\source\\repos\\ORMFinalAllFiles\\ORMFinal.BLL\\ORMFinal.BLL.csproj",
-      "packagesPath": "C:\\Users\\g_lin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\g_lin\\source\\repos\\ORMFinalAllFiles\\ORMFinal.BLL\\obj\\",
+      "projectPath": "C:\\Users\\a_olu\\OneDrive\\Documents\\MITT\\Advanced Database and ORM Concepts\\ORMFinal\\ORMFinal.BLL\\ORMFinal.BLL.csproj",
+      "packagesPath": "C:\\Users\\a_olu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\a_olu\\OneDrive\\Documents\\MITT\\Advanced Database and ORM Concepts\\ORMFinal\\ORMFinal.BLL\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\g_lin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\a_olu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2816,11 +2811,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\g_lin\\source\\repos\\ORMFinalAllFiles\\ORMFinal.DAL\\ORMFinal.DAL.csproj": {
-              "projectPath": "C:\\Users\\g_lin\\source\\repos\\ORMFinalAllFiles\\ORMFinal.DAL\\ORMFinal.DAL.csproj"
+            "C:\\Users\\a_olu\\OneDrive\\Documents\\MITT\\Advanced Database and ORM Concepts\\ORMFinal\\ORMFinal.DAL\\ORMFinal.DAL.csproj": {
+              "projectPath": "C:\\Users\\a_olu\\OneDrive\\Documents\\MITT\\Advanced Database and ORM Concepts\\ORMFinal\\ORMFinal.DAL\\ORMFinal.DAL.csproj"
             },
-            "C:\\Users\\g_lin\\source\\repos\\ORMFinalAllFiles\\ORMFinal.Models\\ORMFinal.Models.csproj": {
-              "projectPath": "C:\\Users\\g_lin\\source\\repos\\ORMFinalAllFiles\\ORMFinal.Models\\ORMFinal.Models.csproj"
+            "C:\\Users\\a_olu\\OneDrive\\Documents\\MITT\\Advanced Database and ORM Concepts\\ORMFinal\\ORMFinal.Models\\ORMFinal.Models.csproj": {
+              "projectPath": "C:\\Users\\a_olu\\OneDrive\\Documents\\MITT\\Advanced Database and ORM Concepts\\ORMFinal\\ORMFinal.Models\\ORMFinal.Models.csproj"
             }
           }
         }
@@ -2855,7 +2850,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

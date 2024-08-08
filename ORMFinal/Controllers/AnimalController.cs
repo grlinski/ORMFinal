@@ -48,7 +48,7 @@ namespace ORMFinal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Animal viewModel)
+        public IActionResult Create(AnimalViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,6 @@ namespace ORMFinal.Controllers
                     AnimalName = viewModel.AnimalName,
                     Species = viewModel.Species,
                     Genus = viewModel.Genus,
-
                 };
 
                 _animalService.AddAnimal(newAnimal);
@@ -97,7 +96,7 @@ namespace ORMFinal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(Animal animalViewModel)
+        public IActionResult Update(AnimalViewModel animalViewModel)
         {
             if (ModelState.IsValid)
             {

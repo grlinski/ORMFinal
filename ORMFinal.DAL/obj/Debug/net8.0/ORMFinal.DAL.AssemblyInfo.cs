@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ORMFinal.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb2b68c1831964f0c02ff2ba7d2576a5c1d8d0bb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ab3c4bfcd49832e51efb9ad9e3ea5418f6c1c4f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ORMFinal.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ORMFinal.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
