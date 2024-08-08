@@ -65,19 +65,7 @@ namespace ORMFinal.Controllers
                     AnimalName = viewModel.AnimalName,
                     Species = viewModel.Species,
                     Genus = viewModel.Genus,
-                    FeedingSchedule = new FeedingSchedule
-                    {
-                        MorningFeeding = viewModel.MorningFeeding,
-                        NoonFeeding = viewModel.NoonFeeding,
-                        EveningFeeding = viewModel.EveningFeeding,
-                        NightFeeding = viewModel.NightFeeding
-                    },
-                    AnimalHealth = new AnimalHealth
-                    {
-                        HealthStatus = viewModel.HealthStatus,
-                        ReportDate = viewModel.ReportDate ?? DateTime.Now,
-                        LastVaccinationDate = viewModel.LastVaccinationDate ?? DateTime.Now
-                    }
+
                 };
 
                 _animalService.AddAnimal(newAnimal);
@@ -143,5 +131,6 @@ namespace ORMFinal.Controllers
             _animalService.DeleteAnimal(id);
             return RedirectToAction("Index");
         }
+
     }
 }

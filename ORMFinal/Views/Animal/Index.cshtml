@@ -30,13 +30,7 @@
             <th>Habitat</th>
             <th>Species</th>
             <th>Genus</th>
-            <th>Morning Feeding</th>
-            <th>Noon Feeding</th>
-            <th>Evening Feeding</th>
-            <th>Night Feeding</th>
-            <th>Health Status</th>
-            <th>Report Date</th>
-            <th>Last Vaccination Date</th>
+
             <th>Actions</th>
         </tr>
     </thead>
@@ -48,13 +42,7 @@
                 <td>@viewModel.Habitat</td>
                 <td>@viewModel.Species</td>
                 <td>@viewModel.Genus</td>
-                <td>@viewModel.MorningFeeding?.ToString()</td>
-                <td>@viewModel.NoonFeeding?.ToString()</td>
-                <td>@viewModel.EveningFeeding?.ToString()</td>
-                <td>@viewModel.NightFeeding?.ToString()</td>
-                <td>@viewModel.HealthStatus</td>
-                <td>@viewModel.ReportDate?.ToString()</td>
-                <td>@viewModel.LastVaccinationDate?.ToString()</td>
+
                 <td class="d-flex">
                     <div>
                         @using (Html.BeginForm("Update", "Animal", FormMethod.Get, new { style = "display:inline;" })) {

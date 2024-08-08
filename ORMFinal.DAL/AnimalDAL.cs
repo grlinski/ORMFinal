@@ -37,12 +37,16 @@ namespace ORMFinal.DAL
 
         public void DeleteAnimal(int id)
         {
-            Animal animal = _context.Animals.Find(id);
+            var animal = _context.Animals.Find(id);
             if (animal != null)
             {
                 _context.Animals.Remove(animal);
                 _context.SaveChanges();
             }
         }
+
+
+
+
     }
 }

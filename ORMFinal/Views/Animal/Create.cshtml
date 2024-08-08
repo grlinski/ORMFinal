@@ -29,44 +29,6 @@
         @Html.ValidationMessageFor(a => a.Genus, "", new { @class = "text-danger" })
     </div>
 
-    <!-- Simple fields for FeedingSchedule and AnimalHealth -->
-    <h4>Animal Health</h4>
-    <div>
-        @Html.LabelFor(model => model.HealthStatus)
-        @Html.TextBoxFor(model => model.HealthStatus, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.HealthStatus, "", new { @class = "text-danger" })
-    </div>
-    <div>
-        @Html.LabelFor(model => model.ReportDate)
-        @Html.TextBoxFor(model => model.ReportDate, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.ReportDate, "", new { @class = "text-danger" })
-    </div>
-    <div>
-        @Html.LabelFor(model => model.LastVaccinationDate)
-        @Html.TextBoxFor(model => model.LastVaccinationDate, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.LastVaccinationDate, "", new { @class = "text-danger" })
-    </div>
-    <h4>Feeding Schedule</h4>
-    <div>
-        @Html.LabelFor(model => model.MorningFeeding)
-        @Html.TextBoxFor(model => model.MorningFeeding, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.MorningFeeding, "", new { @class = "text-danger" })
-    </div>
-    <div>
-        @Html.LabelFor(model => model.NoonFeeding)
-        @Html.TextBoxFor(model => model.NoonFeeding, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.NoonFeeding, "", new { @class = "text-danger" })
-    </div>
-    <div>
-        @Html.LabelFor(model => model.EveningFeeding)
-        @Html.TextBoxFor(model => model.EveningFeeding, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.EveningFeeding, "", new { @class = "text-danger" })
-    </div>
-    <div>
-        @Html.LabelFor(model => model.NightFeeding)
-        @Html.TextBoxFor(model => model.NightFeeding, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.NightFeeding, "", new { @class = "text-danger" })
-    </div>
     <div>
         <input type="submit" value="Add" class="btn btn-primary active btn-lg my-4" />
     </div>
