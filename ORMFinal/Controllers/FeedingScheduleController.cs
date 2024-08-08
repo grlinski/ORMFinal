@@ -19,15 +19,12 @@ namespace ORMFinal.Controllers
             _animalService = animalService;
         }
 
-
-
         [HttpGet]
         public IActionResult Index()
         {
             var feedingScheduleList = _feedingScheduleService.GetFeedingSchedule();
             return View(feedingScheduleList);
         }
-
 
 
         //Create Functions
@@ -73,7 +70,6 @@ namespace ORMFinal.Controllers
             ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName");
             return View(feedingSchedule);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Delete(int id)

@@ -54,7 +54,6 @@ namespace ORMFinal.Controllers
 
 
 
-
         // Delete Exhibit
         [HttpPost]
         public IActionResult Delete(int id)
@@ -82,7 +81,7 @@ namespace ORMFinal.Controllers
         public IActionResult Create()
         {
             //Delete Employees later, not sure it's doing anything
-            ViewBag.Employees = _employeeService.GetEmployees();
+            //ViewBag.Employees = _employeeService.GetEmployees();
             ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName");
             return View(new Exhibit());
         }
@@ -141,9 +140,7 @@ namespace ORMFinal.Controllers
             return View(exhibit);
         }
 
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, [Bind("ExhibitId,Location,Size,AnimalId")] Exhibit exhibit)
         {
             _logger.LogInformation("Edit POST action called for Exhibit Id: {Id}", id);

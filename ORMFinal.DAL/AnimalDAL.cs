@@ -45,9 +45,6 @@ namespace ORMFinal.DAL
         }
 
 
-
-
-
         //This needs to delete a slew of other values
         public void DeleteAnimal(int id)
         {

@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 
-
 namespace ORMFinal.Controllers
 {
     public class EmployeeController : Controller
@@ -36,24 +35,6 @@ namespace ORMFinal.Controllers
             {
                 employees = employees.Where(e => e.Exhibit != null && e.Exhibit.Location.Contains(searchExhibit)).ToList();
             }
-
-            // Sort by date
-            switch (sortOrder)
-            {
-                case "date_asc":
-                    employees = employees.OrderBy(e => e.DateStarted).ToList();
-                    break;
-                case "date_desc":
-                    employees = employees.OrderByDescending(e => e.DateStarted).ToList();
-                    break;
-                default:
-                    employees = employees.OrderBy(e => e.EmployeeId).ToList();
-                    break;
-            }
-
-            ViewBag.SortOrder = sortOrder;
-            ViewBag.SearchPosition = searchPosition;
-            ViewBag.SearchExhibit = searchExhibit;
 
             return View(employees);
         }

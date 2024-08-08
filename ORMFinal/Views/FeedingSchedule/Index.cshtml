@@ -32,8 +32,8 @@
                 <td>@FeedingSchedule.EveningFeeding</td>
                 <td>@FeedingSchedule.NightFeeding</td>
                 <td class="text-center btn-group">
-                    <a class="btn btn-primary me-2 rounded-pill shadow d-flex align-items-center" href="@Url.Action("Edit", new { id = FeedingSchedule.FeedingScheduleId })"><i class="fa fa-edit me-2"></i>Edit</a>
-                <form asp-action="Delete" asp-controller="FeedingSchedule" method="post">
+@*                     <a class="btn btn-primary me-2 rounded-pill shadow d-flex align-items-center" href="@Url.Action("Edit", new { id = FeedingSchedule.FeedingScheduleId })"><i class="fa fa-edit me-2"></i>Edit</a>
+ *@                <form asp-action="Delete" asp-controller="FeedingSchedule" method="post">
                     <input type="hidden" name="id" value="@FeedingSchedule.FeedingScheduleId" />
                         <button type="submit" class="btn btn-danger rounded-pill shadow d-flex align-items-center"><i class="fa fa-trash me-2"></i>Delete</button>
                 </form>

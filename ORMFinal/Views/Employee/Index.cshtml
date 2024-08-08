@@ -6,12 +6,11 @@
 <h2 class="display-1 text-center my-4">Employee List</h2>
 
 
-
-
 <!--Create button  -->
 <div class ="text-center my-4">
     <a href="@Url.Action("Create")" class="btn btn-primary active btn-lg my-4"><i class="fa fa-plus me-2"></i>Create New Employee</a>
 </div>
+
 <!--Search Form -->
 <form method="get" action="/Employee/Index">
     <div>
@@ -24,8 +23,6 @@
     </div>
     <button type="submit" class="btn btn-primary mt-1">Search</button>
 </form>
-
-
 
 
 
@@ -71,15 +68,18 @@
                 <td>@item.Exhibit?.Location</td>
                 <td>
 
-
                     <form action="/Employee/Delete" method="post" class="d-inline">
-                        <a href="@Url.Action("Edit", new { id = item.EmployeeId })" class="btn btn-primary rounded-pill shadow align-items-center">
-                            <i class="fa fa-edit me-2"></i>Edit
-                        </a>
-                        <input type="hidden" name="id" value="@item.EmployeeId" />
-                        <button type="submit" class="btn btn-danger rounded-pill shadow d-flex align-items-center">
-                            <i class="fa fa-trash me-2"></i>Delete
-                        </button>
+                        <div>
+                            <a href="@Url.Action("Edit", new { id = item.EmployeeId })" class="btn btn-primary rounded-pill shadow align-items-center">
+                                <i class="fa fa-edit me-2"></i>Edit
+                            </a>
+                            <input type="hidden" name="id" value="@item.EmployeeId" />
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-danger rounded-pill shadow d-flex align-items-center">
+                                <i class="fa fa-trash me-2"></i>Delete
+                            </button>
+                        </div>
                     </form>
 
                 </td>

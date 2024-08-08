@@ -20,7 +20,6 @@ namespace ORMFinal.Controllers
         }
 
 
-
         [HttpGet]
         public IActionResult Index()
         {
@@ -29,7 +28,6 @@ namespace ORMFinal.Controllers
             //var animalHealthList = _animalHealthService.GetAnimalHealth();
             return View(animalHealthList);
         }
-
 
 
         //Create Functions
@@ -75,8 +73,6 @@ namespace ORMFinal.Controllers
         }
 
 
-
-
         // Delete method
         [HttpPost]
         public IActionResult Delete(int id)
@@ -84,18 +80,6 @@ namespace ORMFinal.Controllers
             _animalHealthService.DeleteAnimalHealth(id);
             return RedirectToAction("Index");
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

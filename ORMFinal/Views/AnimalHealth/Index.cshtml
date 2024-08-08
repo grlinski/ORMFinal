@@ -31,7 +31,7 @@
                 <td>@AnimalHealth.LastVaccinationDate</td>
 
                 <td>
-                    <form asp-action="Delete" asp-controller="AnimalHealth" method="post">
+                    <form asp-action="Delete" asp-controller="AnimalHealth" method="post" class=" d-flex">
                         <input type="hidden" name="id" value="@AnimalHealth.HealthReportId" />
                         <button type="submit" class="btn btn-danger rounded-pill shadow d-flex align-items-center"><i class="fa fa-trash me-2"></i>Delete</button>
                     </form>
