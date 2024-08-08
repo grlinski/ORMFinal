@@ -3,30 +3,34 @@
     ViewData["Title"] = "Employees";
 }
 
-<h2>Employee List</h2>
+<h2 class="display-1 text-center my-4">Employee List</h2>
 
-<!--Search Form -->
-<form method="get" action="/Employee/Index" class="search-form">
-    <div>
-        <label for="searchPosition">Search by Position</label>
-        <input type="text" id="searchPosition" name="searchPosition" value="@ViewBag.SearchPosition" />
-    </div>
-    <div>
-        <label for="searchExhibit">Search by Exhibit</label>
-        <input type="text" id="searchExhibit" name="searchExhibit" value="@ViewBag.SearchExhibit" />
-    </div>
-    <button type="submit">Search</button>
-</form>
+
 
 
 <!--Create button  -->
-<p>
-    <a href="@Url.Action("Create")" class="btn btn-primary">Create New Employee</a>
-</p>
+<div class ="text-center my-4">
+    <a href="@Url.Action("Create")" class="btn btn-primary active btn-lg my-4"><i class="fa fa-plus me-2"></i>Create New Employee</a>
+</div>
+<!--Search Form -->
+<form method="get" action="/Employee/Index">
+    <div>
+        <label for="searchPosition">Search by Position</label>
+        <input type="text" id="searchPosition" name="searchPosition" value="@ViewBag.SearchPosition" class="form-control" placeholder="Search by employee position..." />
+    </div>
+    <div>
+        <label for="searchExhibit">Search by Exhibit</label>
+        <input type="text" id="searchExhibit" name="searchExhibit" value="@ViewBag.SearchExhibit" class ="form-control" placeholder="Search by exhibit..."  />
+    </div>
+    <button type="submit" class="btn btn-primary mt-1">Search</button>
+</form>
 
 
 
-<table class="table">
+
+
+
+<table class="table table-sm table-responsive table-hover">
     <thead>
         <tr>
            
@@ -66,12 +70,18 @@
                 <td>@item.DateEnded</td>
                 <td>@item.Exhibit?.Location</td>
                 <td>
-                    <a href="@Url.Action("Edit", new { id = item.EmployeeId })" class="btn btn-secondary">Edit</a>
 
-                    <form action="/Employee/Delete" method="post" style="display:inline;">
+
+                    <form action="/Employee/Delete" method="post" class="d-inline">
+                        <a href="@Url.Action("Edit", new { id = item.EmployeeId })" class="btn btn-primary rounded-pill shadow align-items-center">
+                            <i class="fa fa-edit me-2"></i>Edit
+                        </a>
                         <input type="hidden" name="id" value="@item.EmployeeId" />
-                        <button type="submit">Delete</button>
+                        <button type="submit" class="btn btn-danger rounded-pill shadow d-flex align-items-center">
+                            <i class="fa fa-trash me-2"></i>Delete
+                        </button>
                     </form>
+
                 </td>
             </tr>
         }

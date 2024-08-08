@@ -1,7 +1,9 @@
 ﻿@model AnimalViewModel
 
+<h2 class="display-1 text-center my-4">Add an animal to the database</h2>
+
 <form asp-action="Create">
-    <div>
+    <div class="form-group mb-3">
         @Html.LabelFor(a => a.AnimalCategory)
         @Html.TextBoxFor(a => a.AnimalCategory, new { @class = "form-control" })
         @Html.ValidationMessageFor(a => a.AnimalCategory, "", new { @class = "text-danger" })
@@ -11,17 +13,17 @@
         @Html.TextBoxFor(a => a.Habitat, new { @class = "form-control" })
         @Html.ValidationMessageFor(a => a.Habitat, "", new { @class = "text-danger" })
     </div>
-    <div>
+    <div class="form-group mb-3">
         @Html.LabelFor(a => a.AnimalName)
         @Html.TextBoxFor(a => a.AnimalName, new { @class = "form-control" })
         @Html.ValidationMessageFor(a => a.AnimalName, "", new { @class = "text-danger" })
     </div>
-    <div>
+    <div class="form-group mb-3">
         @Html.LabelFor(a => a.Species)
         @Html.TextBoxFor(a => a.Species, new { @class = "form-control" })
         @Html.ValidationMessageFor(a => a.Species, "", new { @class = "text-danger" })
     </div>
-    <div>
+    <div class="form-group mb-3">
         @Html.LabelFor(a => a.Genus)
         @Html.TextBoxFor(a => a.Genus, new { @class = "form-control" })
         @Html.ValidationMessageFor(a => a.Genus, "", new { @class = "text-danger" })
@@ -66,6 +68,6 @@
         @Html.ValidationMessageFor(model => model.NightFeeding, "", new { @class = "text-danger" })
     </div>
     <div>
-        <input type="submit" value="Create" class="btn btn-primary" />
+        <input type="submit" value="Add" class="btn btn-primary active btn-lg my-4" />
     </div>
 </form>

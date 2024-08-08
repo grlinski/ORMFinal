@@ -53,15 +53,17 @@ namespace ORMFinal.DAL
         }
 
 
-        public async Task DeleteAnimalHealth(int id)
+        public void DeleteAnimalHealth(int id)
         {
-            var animalHealth = await _context.AnimalHealths.FindAsync(id);
+            var animalHealth = _context.AnimalHealths.Find(id);
             if (animalHealth != null)
             {
                 _context.AnimalHealths.Remove(animalHealth);
-                await _context.SaveChangesAsync();
+                _context.SaveChangesAsync();
             }
         }
+
+
 
         public List<AnimalHealth> GetAnimalHealthPlusAnimals()
         {

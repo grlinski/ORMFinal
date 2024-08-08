@@ -48,8 +48,11 @@ namespace ORMFinal.BLL
         public async Task DeleteAnimalHealth(int id)
         {
             _logger.LogInformation("Deleting Animal Health Report with Id: {Id}", id);
-            await _animalHealthDAL.DeleteAnimalHealth(id);
+            _animalHealthDAL.DeleteAnimalHealth(id);
         }
+
+
+
         public List<AnimalHealth> GetAnimalHealthPlusAnimals()
         {
             return _animalHealthDAL.GetAnimalHealthPlusAnimals();

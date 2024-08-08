@@ -74,5 +74,28 @@ namespace ORMFinal.Controllers
             return View(animalHealth);
         }
 
+
+
+
+        // Delete method
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            _animalHealthService.DeleteAnimalHealth(id);
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

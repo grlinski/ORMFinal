@@ -1,22 +1,22 @@
 ﻿@model ORMFinal.Models.Exhibit
 
-<h2>Create Exhibit</h2>
+<h2 class ="display-1 text-center my-4">Create an Exhibit</h2>
 
 @using (Html.BeginForm("Create", "Exhibit", FormMethod.Post))
 {
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label for="Location">Location</label>
         <input type="text" class="form-control" id="Location" name="Location" value="@Model.Location" />
     </div>
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label for="Size">Size</label>
         <input type="text" class="form-control" id="Size" name="Size" value="@Model.Size" />
     </div>
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label for="AnimalId">Animal</label>
         <select class="form-control" id="AnimalId" name="AnimalId" asp-items="ViewBag.Animals">
             <option value="">-- Select Animal --</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-secondary" name="action" value="CreateExhibit">Create Exhibit</button>
+    <button type="submit" class="btn btn-primary active btn-lg my-4" name="action" value="CreateExhibit"><i class="fa fa-plus me-2"></i>Create Exhibit</button>
 }

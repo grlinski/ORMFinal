@@ -1,6 +1,6 @@
 ﻿@model ORMFinal.Models.AnimalHealth
 
-<h2>Create Animal Health</h2>
+<h2 class="display-1 text-center my-4">Create a health report</h2>
 
 @using (Html.BeginForm("Create", "AnimalHealth", FormMethod.Post))
 {
@@ -22,5 +22,5 @@
             <option value="">-- Select Animal --</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-secondary" name="action" value="CreateAnimalHealth">Create Animal Health</button>
+    <button type="submit" class="btn btn-primary active btn-lg my-4" name="action" value="CreateAnimalHealth"><i class="fa fa-plus me-2"></i>Create report</button>
 }
