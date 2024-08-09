@@ -30,20 +30,22 @@ namespace ORMFinal.Controllers
         }
 
 
-        //Index Search
+        //Index and Search function
+        //StringComparison function allows for case insensitive search
         [HttpGet]
         public IActionResult Index(string searchLocation, string searchSize)
         {
             var exhibits = _exhibitService.GetExhibits();
 
+            //Checks the search box, then returns the filtered list
             if (!string.IsNullOrEmpty(searchLocation))
             {
-                exhibits = exhibits.Where(e => e.Location.Contains(searchLocation)).ToList();
+                exhibits = exhibits.Where(e => e.Location.Contains(searchLocation, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
             if (!string.IsNullOrEmpty(searchSize))
             {
-                exhibits = exhibits.Where(e => e.Size.Contains(searchSize)).ToList();
+                exhibits = exhibits.Where(e => e.Size.Contains(searchSize, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
             ViewBag.SearchLocation = searchLocation;
@@ -81,7 +83,8 @@ namespace ORMFinal.Controllers
         public IActionResult Create()
         {
             //Delete Employees later, not sure it's doing anything
-            //ViewBag.Employees = _employeeService.GetEmployees();
+            //Might actually be important, keep
+            ViewBag.Employees = _employeeService.GetEmployees();
             ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName");
             return View(new Exhibit());
         }
@@ -94,6 +97,7 @@ namespace ORMFinal.Controllers
             if (action == "CreateExhibit")
             {
                 var random = new Random();
+                //If a location isn't entered, create a random location, cleverly titled Random Location
                 exhibit.Location = string.IsNullOrEmpty(exhibit.Location) ? $"Random Location {random.Next(1, 100)}" : exhibit.Location;
                 exhibit.Size = string.IsNullOrEmpty(exhibit.Size) ? $"{random.Next(100, 500)} sq ft" : exhibit.Size;
 
@@ -134,18 +138,21 @@ namespace ORMFinal.Controllers
 
             _logger.LogInformation("Fetched exhibit: {@Exhibit}", exhibit);
 
-            // Populate the animals dropdown
+            // Populate the animals dropdown menu
             ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName", exhibit.AnimalId);
 
             return View(exhibit);
         }
 
+
+        //Needed a ton of debugging help, but should work now. 
+        //Problem solved by making the nav property Animal nullable
         [HttpPost]
         public IActionResult Edit(int id, [Bind("ExhibitId,Location,Size,AnimalId")] Exhibit exhibit)
         {
             _logger.LogInformation("Edit POST action called for Exhibit Id: {Id}", id);
             _logger.LogInformation("Received Exhibit data: ExhibitId={ExhibitId}, Location={Location}, Size={Size}, AnimalId={AnimalId}",
-                exhibit.ExhibitId, exhibit.Location, exhibit.Size, exhibit.AnimalId);
+            exhibit.ExhibitId, exhibit.Location, exhibit.Size, exhibit.AnimalId);
 
             if (id != exhibit.ExhibitId)
             {

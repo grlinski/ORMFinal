@@ -16,7 +16,6 @@ namespace ORMFinal.DAL
             _logger = logger;
         }
 
-        //public List<Employee> GetEmployees()
 
         public List<Employee> GetEmployees()
         {

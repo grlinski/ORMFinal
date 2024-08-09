@@ -50,7 +50,7 @@ namespace ORMFinal.DAL
 
             modelBuilder.Entity<Employee>()
                 .HasOne(e => e.Exhibit)
-                .WithMany() // No need for the reverse navigation property in Exhibit
+                .WithMany()
                 .HasForeignKey(e => e.ExhibitId)
                 .OnDelete(DeleteBehavior.Cascade);
 

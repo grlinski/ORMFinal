@@ -19,13 +19,13 @@ namespace ORMFinal.Controllers
             _exhibitService = exhibitService;
         }
 
-        // Index method with search and sort functionality
+        // Index method with search, sort function has mostly been removed, but I don't want to screw with the code
         [HttpGet]
         public IActionResult Index(string searchPosition, string searchExhibit, string sortOrder)
         {
             var employees = _employeeService.GetEmployees();
 
-            // Filter by search criteria
+            //Search critieria, position and exhibit for the employee
             if (!string.IsNullOrEmpty(searchPosition))
             {
                 employees = employees.Where(e => e.Position.Contains(searchPosition)).ToList();

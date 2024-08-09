@@ -12,9 +12,12 @@ namespace ORMFinal.DAL
             _context = context;
         }
 
+        //Updated to also get info from Animals
         public List<FeedingSchedule> GetFeedingSchedule()
         {
-            return _context.FeedingSchedules.ToList();
+            return _context.FeedingSchedules
+                .Include(a => a.Animal) 
+                .ToList();
         }
 
         public async Task<FeedingSchedule> GetFeedingSchedule(int id)

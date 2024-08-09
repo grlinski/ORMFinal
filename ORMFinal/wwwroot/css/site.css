@@ -20,3 +20,22 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+/*My Custom CSS*/
+
+
+.nav-item:hover {
+    background-color: #e6e6e6;
+    color: #007bff;
+    border-radius: 5px;
+}
+
+
+}
+
+.light-blue {
+    background-color: #add8e6;
+    font-size: 22px;
+}
+

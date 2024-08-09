@@ -31,7 +31,7 @@ namespace ORMFinal.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            // Populate ViewBag with animals to select from
+            //Add animals to the viewbag
             ViewBag.Animals = new SelectList(_animalService.GetAllAnimalsList(), "AnimalId", "AnimalName");
             return View(new FeedingSchedule());
         }
@@ -43,7 +43,7 @@ namespace ORMFinal.Controllers
 
             if (action == "CreateFeedingSchedule")
             {
-                // Assign default values if necessary
+                //Default values if none provided
                 feedingSchedule.MorningFeeding = feedingSchedule.MorningFeeding == default ? DateTime.Now : feedingSchedule.MorningFeeding;
                 feedingSchedule.NoonFeeding = feedingSchedule.NoonFeeding == default ? DateTime.Now : feedingSchedule.NoonFeeding;
                 feedingSchedule.EveningFeeding = feedingSchedule.EveningFeeding == default ? DateTime.Now : feedingSchedule.EveningFeeding;

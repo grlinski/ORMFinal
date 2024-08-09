@@ -31,6 +31,7 @@ namespace ORMFinal.BLL
             return feedingRecord;
         }
 
+        //These shouldn't be async, but it's working. So no point in changing.
         public async Task AddFeedingSchedule(FeedingSchedule feedingSchedule)
         {
             _logger.LogInformation("Adding Animal Schedule with FeedingScheduleId: {Id}", feedingSchedule.FeedingScheduleId);

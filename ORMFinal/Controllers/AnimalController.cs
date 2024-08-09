@@ -15,8 +15,13 @@ namespace ORMFinal.Controllers
             _animalService = animalService;
         }
 
+
+
+        //Gabe's comments so I actually vaguely know what is going on.
+        //This takes in a string, ignores case sensitivity and searches categories/properties for it
         public IActionResult Index(string searchString)
         {
+            //Returns animals as an enmuerable. There is a also a similar list version of the function: GetAllAnimalsList
             IEnumerable<Animal> animals = _animalService.GetAllAnimalsEnum();
 
             if (!string.IsNullOrEmpty(searchString))
@@ -28,6 +33,7 @@ namespace ORMFinal.Controllers
                                               a.Genus.Contains(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
+            //The animal object
             var animalViewModels = animals.Select(a => new Animal
             {
                 AnimalId = a.AnimalId,
@@ -41,6 +47,9 @@ namespace ORMFinal.Controllers
             return View(animalViewModels);
         }
 
+
+
+        //Create Functions
         [HttpGet]
         public IActionResult Create()
         {
@@ -67,6 +76,8 @@ namespace ORMFinal.Controllers
             return View(viewModel);
         }
 
+        //Update/Edit Functions
+
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -75,11 +86,12 @@ namespace ORMFinal.Controllers
                 return NotFound("The id received was null");
             }
 
+            //Locate the Animal based on id
             var animal = _animalService.GetAnimalById(id);
 
             if (animal == null)
             {
-                return NotFound("There is no animal with that id");
+                return NotFound("There is no animal with that id found in your database");
             }
 
             var animalViewModel = new Animal
@@ -103,7 +115,7 @@ namespace ORMFinal.Controllers
                 var animal = _animalService.GetAnimalById(animalViewModel.AnimalId);
                 if (animal == null)
                 {
-                    return NotFound("There is no animal with that id");
+                    return NotFound("There is no animal with that id found in your database");
                 }
 
                 animal.AnimalCategory = animalViewModel.AnimalCategory;
@@ -128,8 +140,6 @@ namespace ORMFinal.Controllers
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Unable to delete the animal. It may be referenced by other records.";
-                // Optionally, log the exception message somewhere for debugging
                 return RedirectToAction("Index");
             }
         }

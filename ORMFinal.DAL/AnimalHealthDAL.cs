@@ -26,12 +26,13 @@ namespace ORMFinal.DAL
 
         public void UpdateAnimalHealth(AnimalHealth animalHealth)
         {
+            //Find previous records
             var existingHealthRecord = _context.AnimalHealths.Find(animalHealth.HealthReportId);
             if (existingHealthRecord == null)
             {
                 throw new ArgumentException($"Animal health record with id {animalHealth.HealthReportId} not found.");
             }
-
+            //Retrieve and set values
             _context.Entry(existingHealthRecord).CurrentValues.SetValues(animalHealth);
         }
 

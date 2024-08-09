@@ -16,6 +16,7 @@ namespace ORMFinal.BLL
             _logger = logger;
         }
 
+        //This and the below function were split into two to prevent conflicts from different files being merged at different times.
         public List<Animal> GetAllAnimalsList()
         {
             var animals = _animalDAL.GetAllAnimals().ToList();

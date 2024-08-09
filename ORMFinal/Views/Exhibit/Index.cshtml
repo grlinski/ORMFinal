@@ -34,7 +34,7 @@
             <th>Size of Exhibit</th>
             <th>Animal Id</th>
             <th>Animal Name</th>
-            <th>Delete</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -46,7 +46,7 @@
                 <td>@item.Size</td>
                 <td>@item.AnimalId</td>
                 <td>@item.Animal?.AnimalName</td>
-                <td>
+                <td class="d-flex">
                     <a href="@Url.Action("Edit", new { id = item.ExhibitId })" class="btn btn-primary me-2 rounded-pill shadow d-flex align-items-center"><i class="fa fa-edit me-2"></i>Edit</a>
                     <form action="@Url.Action("Delete", new { id = item.ExhibitId })" method="post" style="display:inline;" onsubmit="return confirm('Are you sure to delete this item?');">
 

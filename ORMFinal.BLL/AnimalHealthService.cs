@@ -52,7 +52,7 @@ namespace ORMFinal.BLL
         }
 
 
-
+        //Updated to add in the Animals table info
         public List<AnimalHealth> GetAnimalHealthPlusAnimals()
         {
             return _animalHealthDAL.GetAnimalHealthPlusAnimals();

@@ -23,9 +23,9 @@ namespace ORMFinal.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var animalHealthList = _animalHealthService.GetAnimalHealthPlusAnimals();
 
-            //var animalHealthList = _animalHealthService.GetAnimalHealth();
+            //Updated to also include the information from animals
+            var animalHealthList = _animalHealthService.GetAnimalHealthPlusAnimals();
             return View(animalHealthList);
         }
 
@@ -46,7 +46,7 @@ namespace ORMFinal.Controllers
 
             if (action == "CreateAnimalHealth")
             {
-                // Assign default values if necessary
+                //This will create some default values if they are not set
                 animalHealth.ReportDate = animalHealth.ReportDate == default ? DateTime.Now : animalHealth.ReportDate;
                 animalHealth.LastVaccinationDate = animalHealth.LastVaccinationDate == default ? DateTime.Now : animalHealth.LastVaccinationDate;
 
@@ -55,6 +55,7 @@ namespace ORMFinal.Controllers
                 return RedirectToAction("Index");
             }
 
+            //Not sure the rest is needed
             if (ModelState.IsValid)
             {
                 if (animalHealth.AnimalId == 0)

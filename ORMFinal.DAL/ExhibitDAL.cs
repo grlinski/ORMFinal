@@ -17,7 +17,8 @@ namespace ORMFinal.DAL
         // Fetch all exhibits
         public List<Exhibit> GetExhibits()
         {
-            return _context.Exhibits.Include(e => e.Animal).ToList(); // Include related data if necessary
+            // Include related data if necessary from Animals
+            return _context.Exhibits.Include(e => e.Animal).ToList(); 
         }
 
         // Fetch a single exhibit by Id

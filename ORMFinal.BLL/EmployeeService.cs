@@ -26,14 +26,12 @@ namespace ORMFinal.BLL
         }
 
 
-
-
         public void DeleteEmployee(int id)
         {
             _employeeDAL.DeleteEmployee(id);
         }
 
-
+        //Logging help
         public void AddEmployee(Employee newEmployee)
         {
             _logger.LogInformation("AddEmployee method called.");
