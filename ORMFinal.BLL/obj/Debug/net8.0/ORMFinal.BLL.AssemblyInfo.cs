@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ORMFinal.BLL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a00aaeb47f89d3eda871097b7e7b55aaf47deca0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5a73c0336086664e28449f015c6ba37333dcb36")]
 [assembly: System.Reflection.AssemblyProductAttribute("ORMFinal.BLL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ORMFinal.BLL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

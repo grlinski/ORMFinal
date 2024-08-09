@@ -22,7 +22,7 @@ namespace ORMFinal.Models
         public int AnimalId { get; set; }
 
         [ForeignKey("AnimalId")]
-        public virtual Animal Animal { get; set; }
+        public virtual Animal? Animal { get; set; }
     }
 
 }

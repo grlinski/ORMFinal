@@ -47,7 +47,7 @@
                 <td>@item.AnimalId</td>
                 <td>@item.Animal?.AnimalName</td>
                 <td>
-                    @* <a href="@Url.Action("Edit", new { id = item.ExhibitId })" class="btn btn-primary me-2 rounded-pill shadow d-flex align-items-center"><i class="fa fa-edit me-2"></i>Edit</a> *@
+                    <a href="@Url.Action("Edit", new { id = item.ExhibitId })" class="btn btn-primary me-2 rounded-pill shadow d-flex align-items-center"><i class="fa fa-edit me-2"></i>Edit</a>
                     <form action="@Url.Action("Delete", new { id = item.ExhibitId })" method="post" style="display:inline;" onsubmit="return confirm('Are you sure to delete this item?');">
 
                         <button type="submit" class="btn btn-danger rounded-pill shadow d-flex align-items-center"><i class="fa fa-trash me-2"></i>Delete</button>
